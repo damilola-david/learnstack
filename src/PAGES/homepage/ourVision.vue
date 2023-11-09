@@ -54,7 +54,7 @@
     @include a.container(90%);
     padding: 50px 0px;
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 50% 50%;
     grid-auto-rows: auto;
     place-items: center;
     gap: 20px;

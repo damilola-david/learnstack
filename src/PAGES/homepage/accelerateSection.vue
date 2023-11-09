@@ -8,7 +8,7 @@
       </p>
       <div class="accelerate__grid">
         <div class="reason">
-          <img src="../../assets/IMAGES/Rangitikei.png" alt="" />
+          <img src="../../../public/IMAGES/Rangitikei.png" alt="" />
           <div class="reason__text">
             <h5>fun learning</h5>
             <p>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="reason">
-          <img src="../../assets/IMAGES/Waiau.png" alt="" />
+          <img src="../../../public/IMAGES/Waiau.png" alt="" />
           <div class="reason__text">
             <h5>affordable tuition</h5>
             <p>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="reason">
-          <img src="../../assets/IMAGES/Waihou.png" alt="" />
+          <img src="../../../public/IMAGES/Waihou.png" alt="" />
           <div class="reason__text">
             <h5>flexible learning</h5>
             <p>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="reason">
-          <img src="../../assets/IMAGES/Wairau.png" alt="" />
+          <img src="../../../public/IMAGES/Wairau.png" alt="" />
           <div class="reason__text">
             <h5>learn from the best</h5>
             <p>

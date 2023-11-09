@@ -8,13 +8,18 @@ import courseOutline from "./courseOutline.vue";
 export default {
   data() {
     return {
+      //subjects data for subject page
+      //this data would be passed to the chilldrencomponent via provide and inject.
       subjects: [
+
+      //biology data
       {
           subjectName: "biology",
           subjectDescription: "some random text",
           subjectGoals: ["four", "five", "six"],
           subjectImage: "../../../IMAGES/sixteen.jpg",
         },
+        //physics data
         {
           subjectName:"physics",
           subjectDescription: "some random text",
@@ -25,8 +30,9 @@ export default {
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
           ],
-          subjectImage: "../../../IMAGES/pexels-jan-van-der-wolf-7130692.jpg",
+          subjectImage: "../../../IMAGES/ferris.webp",
         },
+        //chemistry data
         {
           subjectName: "chemistry",
           subjectDescription: "some random text",
@@ -37,8 +43,10 @@ export default {
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
           ],
-          subjectImage: "../../../IMAGES/pexels-rfstudio-3825573.jpg",
+          subjectImage: "../../../IMAGES/atoms.jpeg",
         },
+
+        //government data
         {
           subjectName: "government",
           subjectDescription: "some random text",
@@ -51,6 +59,8 @@ export default {
           ],
           subjectImage: "../../../IMAGES/commons.webp",
         },
+
+        //history data
         {
           subjectName: "history",
           subjectDescription: "some random text",

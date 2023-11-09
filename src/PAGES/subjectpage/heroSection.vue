@@ -5,7 +5,7 @@
         <h1>{{ subjectName }}</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quae
-          dignissimos laudantium, sed quaerat accusantium!
+          dignissimos laudantium, sed quaerat accusantium!{{id}}
         </p>
         <button @click="showProp()"></button>
       </div>
@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-  props:["id"],
+  props:['id'],
   inject: ["subjects"],
   data() {
     return {
@@ -77,7 +77,7 @@ export default {
     h1 {
       font-size: 70px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 6px;
       color: #000;
 
       @include a.breakpoint(small){

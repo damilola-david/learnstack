@@ -9,8 +9,8 @@
           :key="subject"
           :style="{ backgroundImage: 'url(' + subject.image + ')' }"
         >
-          <RouterLink to="/"
-            ><the-button>{{ subject.name }}</the-button></RouterLink
+          <RouterLink :to="'/subject/' +subject.name">
+            <the-button @click="coool()">{{ subject.name }} </the-button></RouterLink
           >
         </div>
       </div>
@@ -37,7 +37,6 @@
     gap: 20px;
   }
   .subject {
-    background-image: url("../../assets/IMAGES/five.jpg");
     background-size: cover;
     //background: red;
     height: 300px;
@@ -75,6 +74,9 @@ export default {
         }
       this.classsubject = departmentSubjects;
     },
+    coool(){
+      console.log('/subject/' +this.classsubject.name)
+    }
   },
   watch: {
     $route(newRoute) {

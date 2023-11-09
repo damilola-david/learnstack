@@ -42,6 +42,9 @@ span{
     background: a.$green;
     margin-right: 10px;
     padding: 2.5px 16px;
-    border-radius: 20px
+    border-radius: 20px;
+    @include a.breakpoint(small){
+        display: none;
+    }
 }
 </style>

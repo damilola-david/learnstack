@@ -5,9 +5,11 @@
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae molestias
       inventore harum non suscipit accusamus?
     </p>
+    <!-- departments container div-->
     <div class="departments__container">
+      <!--science department div-->
       <div class="department">
-        <img src="../../assets/IMAGES/nine.jpg" alt="" />
+        <img src="../../../public/IMAGES/nine.jpg" alt="" />
         <div class="department__text">
           <h3>science class</h3>
           <p>Lorem ipsum dolor sit amet.</p>
@@ -15,11 +17,12 @@
         </div>
       </div>
 
+      <!--arts department div-->
       <div
         class="department"
         
       >
-        <img src="../../assets/IMAGES/arts.jpg" alt="" />
+        <img src="../../../public/IMAGES/arts.jpg" alt="" />
         <div class="department__text">
           <h3>arts class</h3>
           <p>Lorem ipsum dolor sit amet.</p>
@@ -27,11 +30,12 @@
         </div>
       </div>
 
+      <!--commercial department div-->
       <div
         class="department"
        
       >
-        <img src="../../assets/IMAGES/ten.jpg" alt="" />
+        <img src="../../../public/IMAGES/ten.jpg" alt="" />
         <div class="department__text">
           <h3>commercial class</h3>
           <p>Lorem ipsum dolor sit amet.</p>
@@ -43,6 +47,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 @use "../../SCSS/abstract/" as a;
 .departments {
   padding: 60px 0px;
