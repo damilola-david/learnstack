@@ -1,11 +1,12 @@
 <template>
     <div class="announce">
         <div class="announce__container">
-            <router-link to="/"><p>2023/2024 jamb tutorial admission is ongoing </p><font-awesome-icon icon="fa-solid fa-arrow-right" style="margin-left: 10px;"/></router-link>
+            <router-link to="/"><span>new</span><p>2023/2024 jamb tutorial admission is ongoing </p><font-awesome-icon icon="fa-solid fa-arrow-right" style="margin-left: 10px;"/></router-link>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
+@use "../SCSS/abstract" as a ;
 .announce{
     position: fixed;
     top:80px;
@@ -36,5 +37,11 @@ a{
     display: flex;
     align-items: center;
     color: #000;
+}
+span{
+    background: a.$green;
+    margin-right: 10px;
+    padding: 2.5px 16px;
+    border-radius: 20px
 }
 </style>

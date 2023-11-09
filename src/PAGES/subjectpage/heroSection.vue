@@ -63,7 +63,7 @@ export default {
     position: absolute;
     bottom: 5px;
     left: 0px;
-    width: 50%;
+    width: 40%;
     padding: 20px;
     height: 40%;
     border: 2px solid #000;
@@ -75,7 +75,7 @@ export default {
     }
     //styling the h1 tag in the hero-text
     h1 {
-      font-size: 80px;
+      font-size: 70px;
       text-transform: uppercase;
       margin-bottom: 20px;
       color: #000;

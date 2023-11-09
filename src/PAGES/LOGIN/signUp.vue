@@ -130,7 +130,7 @@
                 <label for="deparment">department</label>
                 <input
                   type="text"
-                  @focus = "showOptions()"
+                  @focus = "showDepartmentOptions()"
                   :value="departmentSelected"
                   name=""
                   id=""
