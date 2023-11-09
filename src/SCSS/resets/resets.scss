@@ -1,0 +1,20 @@
+@import url('https://fonts.cdnfonts.com/css/the-sims-sans');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: 'Kanit', sans-serif;                                  
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'The Sims Sans', sans-serif;
+    //font-family: 'The Sims Sans SC', sans-serif;
+    font-weight: 900;    
+}
+a{
+    text-decoration: none;
+    color: #000;
+
+}
