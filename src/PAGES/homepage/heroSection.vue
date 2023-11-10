@@ -24,7 +24,7 @@
             }"
           >
             <h1>prepare for your exams the <span>right </span>way</h1>
-            <p>if you want to learn is not better to learn the right way?</p>
+            <p>if you want to learn is it not better to learn the right way?</p>
             <the-button
               >get started
               <font-awesome-icon
@@ -58,7 +58,7 @@
   &__container {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-auto-rows: minmax(400px, 600px);
+    grid-auto-rows: minmax(400px, 650px);
 
     /*changing the hero section 
     banner to one column when on smaller devices*/

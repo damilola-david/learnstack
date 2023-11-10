@@ -1,7 +1,7 @@
 <template>
   <section class="outline">
     <div class="outline__container">
-      <h2>course goals</h2>
+      <h2>learning outline</h2>
       <p>what you would learn at the end of the course
       </p>
       <div class="outline__grid">
@@ -23,8 +23,7 @@
 </template>
 <script>
 export default {
-  inject: ["subjects"],
-  props:['subName'],
+  inject: ["subjects",'id'],
   data() {
     return {
       courseOutline: null,
@@ -33,15 +32,14 @@ export default {
   methods:{
     loadSubject(subName) {
       const pickedSubject = this.subjects.find( (subject) => subject.subjectName === subName);
-      console.log(pickedSubject + " course")
       this.courseOutline = pickedSubject.subjectGoals;
     },
   },
   created() {
-    this.loadSubject(this.$route.params.id);
+    this.loadSubject(this.id);
   },
   watch: {
-    $route(newRoute) {
+    id(newRoute) {
       this.loadSubject(newRoute);
     },
   },
@@ -67,7 +65,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: auto;
-    column-gap: 10px;
+    column-gap: 40px;
     row-gap: 40px;
     //reducing the columns to 1 column on small screen size
     @include a.breakpoint(small){
@@ -76,7 +74,7 @@ export default {
     &__item {
       display: flex;
       align-items: center;
-      column-gap: 10px;
+      column-gap: 30px;
       color: a.$lightDark;
     }
   }

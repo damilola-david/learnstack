@@ -1,9 +1,8 @@
 <script>
 export default {
-  inject: ["department"],
-  props:['clasName'],
+  inject: ["department",'id'],
   created() {
-    this.loadDepartment(this.$route.params.clasName);
+    this.loadDepartment(this.id);
   },
   methods: {
     loadDepartment(clasName) {
@@ -14,7 +13,7 @@ export default {
     },
   },
   watch: {
-    $route(newRoute) {
+    id(newRoute) {
       this.loadDepartment(newRoute);
     },
   },

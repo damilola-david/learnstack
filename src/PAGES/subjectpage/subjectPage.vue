@@ -1,11 +1,13 @@
 <template>
-  <heroSection></heroSection>
+    <heroSection></heroSection>
   <courseOutline></courseOutline>
+
 </template>
 <script>
 import heroSection from "./heroSection.vue";
 import courseOutline from "./courseOutline.vue";
 export default {
+  props:['id'],
   data() {
     return {
       //subjects data for subject page
@@ -45,7 +47,19 @@ export default {
           ],
           subjectImage: "../../../IMAGES/atoms.jpeg",
         },
-
+         //mathematics data
+         {
+          subjectName: "mathematics",
+          subjectDescription: "some random text",
+          subjectGoals: [
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+          ],
+          subjectImage: "../../../IMAGES/math.jpg",
+        },
         //government data
         {
           subjectName: "government",
@@ -74,6 +88,19 @@ export default {
           ],
           subjectImage: "../../../IMAGES/Rome_GettyImages-841851056.webp",
         },
+        //crk data
+        {
+          subjectName: "crk",
+          subjectDescription: "some random text",
+          subjectGoals: [
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
+          ],
+          subjectImage: "../../../IMAGES/crk.webp",
+        },
       ],
     };
   },
@@ -84,6 +111,7 @@ export default {
   provide() {
     return {
       subjects: this.subjects,
+      id : this.id
     };
   },
 };

@@ -19,17 +19,13 @@
         <li class="nav__item" @click="showdropdown()">
           departments
           <div class="dropdown" v-if="isVisible">
-            <ul>
-              <li>
+
+
                 <router-link to="/department/sciences">science</router-link>
-              </li>
-              <li><router-link to="/department/arts">arts</router-link></li>
-              <li>
+             <router-link to="/department/arts">arts</router-link>
                 <router-link to="/department/commercials"
                   >commercials</router-link
                 >
-              </li>
-            </ul>
           </div>
         </li>
         <li class="nav__item"><router-link to="/">tuition</router-link></li>
@@ -79,10 +75,8 @@
       font-weight: 400;
       color: #fff;
       position: relative;
-      //background: #fea321;
       height: 100%;
       cursor: pointer;
-      //font-size: 90px !important;
     }
   }
   a {
@@ -95,11 +89,11 @@
   }
 }
 .dropdown {
-  background: #0f0f0f;
+  background: a.$darkGrey;
   position: absolute;
   //bottom: -2px;
   left: 0%;
-  padding: 20px;
+  padding: 20px 0px;
   width: 300%;
   margin-top: 10px;
   height: auto;
@@ -107,12 +101,14 @@
   display: block;
   border: 1px solid #fff;
 
-  ul {
-    list-style-type: none;
+a{
+  display: block;
+  padding: 20px 10px;
+  margin: 2px 0px;
+  &:hover{
+    background: #474747;
   }
-  ul > li {
-    margin: 20px 0px;
-  }
+}
 }
 
 .menu {

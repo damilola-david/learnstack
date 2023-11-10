@@ -10,7 +10,7 @@
           :style="{ backgroundImage: 'url(' + subject.image + ')' }"
         >
           <RouterLink :to="'/subject/' +subject.name">
-            <the-button @click="coool()">{{ subject.name }} </the-button></RouterLink
+            <the-button>{{ subject.name }} </the-button></RouterLink
           >
         </div>
       </div>
@@ -58,9 +58,9 @@ export default {
       classsubject:[],
     };
   },
-  inject: ["department","subjects"],
+  inject: ["department","subjects",'id'],
   created() {
-    this.loadDepartment(this.$route.params.clasName);
+    this.loadDepartment(this.id);
   },
   methods: {
     loadDepartment(route) {
@@ -74,12 +74,9 @@ export default {
         }
       this.classsubject = departmentSubjects;
     },
-    coool(){
-      console.log('/subject/' +this.classsubject.name)
-    }
   },
   watch: {
-    $route(newRoute) {
+    id(newRoute) {
       this.loadDepartment(newRoute);
     },
   },

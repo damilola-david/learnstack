@@ -3,10 +3,6 @@
     <div class="subject__hero__container">
       <div class="subject__hero__text">
         <h1>{{ subjectName }}</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quae
-          dignissimos laudantium, sed quaerat accusantium!{{id}}
-        </p>
         <button @click="showProp()"></button>
       </div>
     </div>
@@ -14,8 +10,7 @@
 </template>
 <script>
 export default {
-  props:['id'],
-  inject: ["subjects"],
+  inject: ["subjects",'id'],
   data() {
     return {
       subjectName: "",
@@ -32,11 +27,11 @@ export default {
     
   },
   created() {
-    this.loadSubject(this.$route.params.id);
+    this.loadSubject(this.id);
     console.log(this.id)
   },
   watch: {
-    $route(newRoute) {
+    id(newRoute) {
       this.loadSubject(newRoute);
     },
   },
@@ -48,6 +43,7 @@ export default {
   //background-image: url("../../../public/IMAGES/sixteen.jpg");
   background-position: top;
   background-size: cover;
+  background-position: center;
   height: 90vh;
   &__container {
     @include a.container(85%);
@@ -64,7 +60,7 @@ export default {
     bottom: 5px;
     left: 0px;
     width: 40%;
-    padding: 20px;
+    padding: 10px 20px;
     height: 40%;
     border: 2px solid #000;
     color: #000;
@@ -81,7 +77,7 @@ export default {
       color: #000;
 
       @include a.breakpoint(small){
-      font-size: 60px;
+      font-size: 50px;
     }
 
     //styling the p tag in the hero text div

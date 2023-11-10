@@ -8,6 +8,7 @@ import theHero from "./theHero.vue";
 import aboutDepartment from "./aboutDepartment.vue";
 import theSubjectsVue from "./theSubjects.vue";
 export default {
+  props:['className'],
   data() {
     return {
       department: [
@@ -117,6 +118,7 @@ export default {
     return {
       department: this.department,
       subjects:this.subjects,
+      id: this.className,
     };
   },
   components: {

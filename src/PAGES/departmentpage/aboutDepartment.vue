@@ -86,9 +86,9 @@
 </style>
 <script>
 export default {
-  inject: ["department"],
+  inject: ["department",'id'],
   created() {
-    this.loadDepartment(this.$route.params.clasName);
+    this.loadDepartment(this.id);
   },
   data() {
     return {
@@ -114,7 +114,7 @@ export default {
     },
   },
   watch: {
-    $route(newRoute) {
+    id(newRoute) {
       this.loadDepartment(newRoute);
     },
   },
