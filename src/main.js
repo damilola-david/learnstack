@@ -7,12 +7,13 @@ import theButtons from "./components/theButtons.vue";
 import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight,faCheckDouble} from '@fortawesome/free-solid-svg-icons';
 //import VueTypedJs from 'typed.js'
-library.add(faArrowRight);
+library.add(faArrowRight,faCheckDouble);
 const app=createApp(App);
 app.component("the-button",theButtons)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router);
 app.use (store)
+
 app.mount('#app');

@@ -45,6 +45,9 @@ export default {
   background-size: cover;
   background-position: center;
   height: 90vh;
+  @include a.breakpoint(small){
+    height: 65vh
+  }
   &__container {
     @include a.container(85%);
     position: relative;
@@ -68,6 +71,7 @@ export default {
     //styling the text container at phone size to increase the width
     @include a.breakpoint(small){
       width: 100%;
+      height: 20%;
     }
     //styling the h1 tag in the hero-text
     h1 {
@@ -77,7 +81,7 @@ export default {
       color: #000;
 
       @include a.breakpoint(small){
-      font-size: 50px;
+      font-size: 40px;
     }
 
     //styling the p tag in the hero text div

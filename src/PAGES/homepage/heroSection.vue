@@ -71,7 +71,7 @@
     //aligning the items in the text wrapper ie(.hero text) to the center vertically
     @include a.flex(flex-start, center);
     @include a.container(100%);
-    background: rgb(8, 8, 8);
+    background: #000;
     color: #fff;
     h1 {
       font-size: 60px;

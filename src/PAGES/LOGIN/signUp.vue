@@ -56,7 +56,7 @@
                       v-for="country in countriesList"
                       :key="country"
                       @click="
-                        selectCountry(country);
+                        selectOption(country,'countriesList','countrySelected');
                         showCountryOptions();
                       "
                     >
@@ -79,12 +79,7 @@
             <div class="form__grid">
               <div class="form__grid__item">
                 <label for="date of birth">date of birth</label>
-                <input
-                  type="date"
-                  name=""
-                  id=""
-                  placeholder="date of birth"
-                />
+                <input type="date" name="" id="" placeholder="date of birth" />
               </div>
               <div class="form__grid__item">
                 <label for="gender">gender</label>
@@ -103,8 +98,7 @@
                       v-for="gender in genderList"
                       :key="gender"
                       @click="
-                        selectGender(gender);
-                        showGenderOptions();
+                        selectOption(gender,'genderList','genderSelected'),showGenderOptions();
                       "
                     >
                       {{ gender }}
@@ -130,7 +124,7 @@
                 <label for="deparment">department</label>
                 <input
                   type="text"
-                  @focus = "showDepartmentOptions()"
+                  @focus="showDepartmentOptions()"
                   :value="departmentSelected"
                   name=""
                   id=""
@@ -142,7 +136,7 @@
                       v-for="department in departmentList"
                       :key="department"
                       @click="
-                        selectDepartment(department);
+                        selectOption(department,'departmentList','departmentSelected');
                         showDepartmentOptions();
                       "
                     >
@@ -151,9 +145,23 @@
                   </ul>
                 </div>
               </div>
+
               <div class="form__grid__item">
-                <label for="courses">pick courses</label>
-                <input type="text" name="" id="" placeholder="select courses" />
+                <label for="courses">pick subjects</label>
+                <input
+                  type="text"
+                  @click="showSubjectOptions()"
+                  name=""
+                  id=""
+                  placeholder="select subjects"
+                />
+                <div class="options" v-show="isSubjectVisible">
+                  <ul>
+                    <li v-for="subject in showSubjectOptions" :key="subject">
+                    {{ subject }}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             <the-button>proceed</the-button>
@@ -183,7 +191,7 @@
   &__banner__wrapper {
     padding: 40px 40px;
     margin-top: 20px;
-    @include a.flex(center,center);
+    @include a.flex(center, center);
     @include a.breakpoint(small) {
       display: none;
     }
@@ -313,6 +321,7 @@ export default {
       isCountryVisible: false,
       isGenderVisible: false,
       isDepartmentVisible: false,
+      isSubjectVisible :false,
       countriesList: [
         "usa",
         "canada",
@@ -323,6 +332,9 @@ export default {
         "rwanda",
         "united-kingdom",
       ],
+      scienceSubjects: ["physics","chemistry","biology"],
+      artsSubjects: ["government","history","crk"],
+      subjectsArray: [],
       genderList: ["male", "female"],
       departmentList: ["sciences", "arts", "commercials"],
       countrySelected: null,
@@ -333,6 +345,7 @@ export default {
   methods: {
     showCountryOptions() {
       this.isCountryVisible = !this.isCountryVisible;
+      
       this.isGenderVisible = false;
       this.isDepartmentVisible = false;
     },
@@ -342,25 +355,18 @@ export default {
       this.isDepartmentVisible = false;
     },
     showDepartmentOptions() {
-      this.isDepartmentVisible =!this.isDepartmentVisible;
+      this.isDepartmentVisible = !this.isDepartmentVisible;
       this.isGenderVisible = false;
       this.isCountryVisible = false;
-    },
-    selectCountry(country) {
-      let picked = this.countriesList.indexOf(country);
-      console.log(country);
-      this.countrySelected = this.countriesList[picked];
-    },
-    selectGender(gender) {
-      let picked = this.genderList.indexOf(gender);
-      console.log(gender);
-      this.genderSelected = this.genderList[picked];
-    },
-    selectDepartment(department) {
-      let picked = this.departmentList.indexOf(department);
-      console.log(department)
-      this.departmentSelected = this.departmentList[picked];
-    },
+    }, 
+    selectOption(option,optionList,optionSelected){
+      let picked = this[optionList].indexOf(option);
+      this[optionSelected] = this[optionList][picked];
+    }
+
   },
+  computed:{
+    
+  }
 };
 </script>

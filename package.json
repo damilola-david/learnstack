@@ -14,6 +14,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@growthbunker/vueflags": "^0.1.14",
     "@vueuse/motion": "^2.0.0",
     "core-js": "^3.8.3",
     "mdb-vue-ui-kit": "^4.1.1",
