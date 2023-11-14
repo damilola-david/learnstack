@@ -133,11 +133,11 @@
           align-items: center;
           justify-content: center;
           font-size: 25px;
+          padding-left: 100%;
           position: relative;
           .icon{
             position: absolute;
             top: 20%;
-
           }
         }
       }

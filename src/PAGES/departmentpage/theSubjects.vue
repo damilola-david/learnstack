@@ -31,7 +31,7 @@
   }
   &__grid {
     @include a.flex(space-between, center);
-    @include a.breakpoint(small){
+    @include a.breakpoint(medium){
       flex-direction: column;
     }
     gap: 20px;

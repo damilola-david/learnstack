@@ -42,7 +42,7 @@ export default {
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
           ],
           subjectImage: "../../../IMAGES/ferris.webp",
-          activeExams: ["jamb", "waec", "cambridge", "sat"],
+          activeExams: ["jamb", "waec", "cambridge", "sat","gmat"],
           courseOutcome: [
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem",
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem",
@@ -50,7 +50,7 @@ export default {
           ],
           courseOutcomeImage:"../../../IMAGES/pexels-thisisengineering-3862635.jpg",
         },
-        //chemistry data
+        //chemistry data~~~
         {
           subjectName: "chemistry",
           subjectDescription: "some random text",
@@ -82,7 +82,7 @@ export default {
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem officiis mollitia repudiandae reiciendis quaerat, hic maiores atque accusamus laudantium tempore.",
           ],
           subjectImage: "../../../IMAGES/math.jpg",
-          activeExams: ["neco", "waec", "cambridge", "jamb", "sat"],
+          activeExams: ["neco", "waec", "cambridge", "jamb", "sat","gmat"],
           courseOutcome: [
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem",
             "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem",
@@ -178,6 +178,11 @@ export default {
           name: "cambridge",
           isLive: false,
           image: "../../../IMAGES/camb.png",
+        },
+        {
+          name: "gmat",
+          isLive: true,
+          image: "../../../IMAGES/gmat.png",
         },
       ],
     };

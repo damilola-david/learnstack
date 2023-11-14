@@ -1,11 +1,6 @@
 <template>
   <section class="register">
-    <router-link
-      to="/"
-      class="logo"
-      style="position: absolute; top: 10px; left: 50px"
-      ><h2>LEARNSTACKS</h2></router-link
-    >
+    <router-link to="/" class="logo"><h2>LEARNSTACKS</h2></router-link>
     <div class="register__container">
       <div class="register__banner__wrapper">
         <div class="register__banner">
@@ -48,7 +43,7 @@
                   name=""
                   id=""
                   placeholder="select country"
-                  :value="countrySelected"
+                  :value="countrySelected['name']"
                 />
                 <div class="options" v-if="isCountryVisible">
                   <ul>
@@ -56,11 +51,20 @@
                       v-for="country in countriesList"
                       :key="country"
                       @click="
-                        selectOption(country,'countriesList','countrySelected');
+                        selectOption(
+                          country,
+                          'countriesList',
+                          'countrySelected'
+                        );
                         showCountryOptions();
                       "
                     >
-                      {{ country }}
+                      <img
+                        :src="country.flagImage"
+                        style="width: 30px; height: 30px; object-fit: cover"
+                        alt=""
+                      />
+                      <p style="margin-left: 10px">{{ country.name }}</p>
                     </li>
                   </ul>
                 </div>
@@ -92,13 +96,18 @@
                   placeholder="select gender"
                   :value="genderSelected"
                 />
-                <div class="options" v-show="isGenderVisible">
+                <div
+                  class="options"
+                  :style="{ maxHeight: isGenderVisible ? '250px' : '0px' }"
+                  v-show="isGenderVisible"
+                >
                   <ul>
                     <li
                       v-for="gender in genderList"
                       :key="gender"
                       @click="
-                        selectOption(gender,'genderList','genderSelected'),showGenderOptions();
+                        selectOption(gender, 'genderList', 'genderSelected'),
+                          showGenderOptions()
                       "
                     >
                       {{ gender }}
@@ -136,7 +145,11 @@
                       v-for="department in departmentList"
                       :key="department"
                       @click="
-                        selectOption(department,'departmentList','departmentSelected');
+                        selectOption(
+                          department,
+                          'departmentList',
+                          'departmentSelected'
+                        );
                         showDepartmentOptions();
                       "
                     >
@@ -150,16 +163,35 @@
                 <label for="courses">pick subjects</label>
                 <input
                   type="text"
-                  @click="showSubjectOptions()"
+                  @click="showSubjectOptions"
+                  :value="subjectsSelected"
                   name=""
                   id=""
                   placeholder="select subjects"
                 />
                 <div class="options" v-show="isSubjectVisible">
                   <ul>
-                    <li v-for="subject in showSubjectOptions" :key="subject">
-                    {{ subject }}
+                    <li v-for="subject of subjectsArray" :key="subject">
+                      <input
+                        type="checkbox"
+                        name=""
+                        :value="subject"
+                        v-model="subjectsSelected"
+                        id=""
+                      />{{ subject }}
                     </li>
+                    <button
+                      @click="
+                        selectOption(
+                          department,
+                          'departmentList',
+                          'departmentSelected'
+                        );
+                        showSubjectOptions();
+                      "
+                    >
+                      save
+                    </button>
                   </ul>
                 </div>
               </div>
@@ -176,6 +208,16 @@
 .register {
   height: 100vh;
   position: relative;
+
+  //styling the logo
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    @include a.breakpoint(small) {
+      left: 40px;
+    }
+  }
   &__container {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -184,9 +226,10 @@
     @include a.breakpoint(small) {
       grid-template-columns: repeat(1, 1fr);
     }
-  }
-  &__container > * {
-    //background-color: red;
+    @include a.breakpoint(medium) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: 50vh;
+    }
   }
   &__banner__wrapper {
     padding: 40px 40px;
@@ -195,17 +238,26 @@
     @include a.breakpoint(small) {
       display: none;
     }
+    @include a.breakpoint(medium) {
+      @include a.flex(flex-start, center);
+    }
   }
   &__banner {
     background: #000;
     color: #fff;
     border-radius: 20px;
     height: 100%;
-    //@include a.flex(center,center)
+    @include a.breakpoint(medium) {
+      height: 100%;
+    }
   }
   &__banner__image {
-    height: 60%;
+    height: 50%;
     padding: 20px;
+    @include a.breakpoint(medium) {
+      height: 60%;
+      display: none;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -216,13 +268,25 @@
   &__banner__text {
     @include a.container(85%);
     margin-top: 20px;
+    @include a.flex(center, center);
+    flex-direction: column;
+    @include a.breakpoint(medium) {
+      height: 100%;
+    }
     h1 {
       margin-bottom: 10px;
       font-size: 40px;
       line-height: 60px;
+      @include a.breakpoint(medium) {
+        font-size: 30px;
+        line-height: 40px;
+      }
     }
     p {
       line-height: 35px;
+      @include a.breakpoint(medium) {
+        line-height: 25px;
+      }
     }
   }
 
@@ -256,10 +320,10 @@
       border-radius: 8px;
       padding: 5px 10px;
       width: 100%;
-      height: auto;
-      max-height: 210px;
+      max-height: 250px;
       overflow-y: auto;
       box-shadow: 0px 0px 1px 0.5px #e8e7e7;
+      transition: max-height 10s ease-in;
       &::-webkit-scrollbar {
         width: 5px;
         margin-right: 20px;
@@ -281,9 +345,15 @@
         //background: forestgreen;
         padding: 10px;
         border-radius: 10px;
+        display: flex;
+        align-items: center;
         &:hover {
           background: #f0efef;
           cursor: pointer;
+        }
+
+        input {
+          accent-color: a.$green;
         }
       }
     }
@@ -321,23 +391,31 @@ export default {
       isCountryVisible: false,
       isGenderVisible: false,
       isDepartmentVisible: false,
-      isSubjectVisible :false,
+      isSubjectVisible: false,
       countriesList: [
-        "usa",
-        "canada",
-        "nigeria",
-        "ghana",
-        "south-africa",
-        "kenya",
-        "rwanda",
-        "united-kingdom",
+        { name: "nigeria", flagImage: "../../../IMAGES/nigeria.png" },
+        { name: "ghana", flagImage: "../../../IMAGES/ghana.png" },
+        { name: "south africa", flagImage: "../../../IMAGES/south-africa.png" },
+        { name: "kenya", flagImage: "../../../IMAGES/kenya.png" },
+        { name: "rwanda", flagImage: "../../../IMAGES/rwanda.png" },
+        {
+          name: "united states",
+          flagImage: "../../../IMAGES/united-states.png",
+        },
+        { name: "canada", flagImage: "../../../IMAGES/canada.png" },
+        {
+          name: "united kingdom",
+          flagImage: "../../../IMAGES/united-kingdom.png",
+        },
       ],
-      scienceSubjects: ["physics","chemistry","biology"],
-      artsSubjects: ["government","history","crk"],
+      scienceSubjects: ["physics", "chemistry", "biology", "mathematics"],
+      artsSubjects: ["government", "history", "crk", "literature"],
+      commercialSubjects: ["economics", "acccounting", "book-keeping"],
       subjectsArray: [],
+      subjectsSelected: [],
       genderList: ["male", "female"],
       departmentList: ["sciences", "arts", "commercials"],
-      countrySelected: null,
+      countrySelected: {},
       genderSelected: null,
       departmentSelected: null,
     };
@@ -345,7 +423,7 @@ export default {
   methods: {
     showCountryOptions() {
       this.isCountryVisible = !this.isCountryVisible;
-      
+
       this.isGenderVisible = false;
       this.isDepartmentVisible = false;
     },
@@ -358,15 +436,39 @@ export default {
       this.isDepartmentVisible = !this.isDepartmentVisible;
       this.isGenderVisible = false;
       this.isCountryVisible = false;
-    }, 
-    selectOption(option,optionList,optionSelected){
+      this.isSubjectVisible = false;
+    },
+
+    subjectOptions() {
+      this.isSubjectVisible = !this.isSubjectVisible;
+      this.isDepartmentVisible = false;
+      if (this.departmentSelected === "sciences") {
+        this.subjectsArray = this.scienceSubjects;
+      }
+      if (this.departmentSelected === "arts") {
+        this.subjectsArray = this.artsSubjects;
+      }
+      if (this.departmentSelected === "commercials") {
+        this.subjectsArray = this.commercialSubjects;
+      }
+    },
+    selectOption(option, optionList, optionSelected) {
       let picked = this[optionList].indexOf(option);
       this[optionSelected] = this[optionList][picked];
-    }
-
+      console.log(this.countrySelected);
+    },
   },
-  computed:{
-    
-  }
+  computed: {
+    showSubjectOptions() {
+      return this.subjectOptions;
+    },
+  },
+  watch: {
+    departmentSelected(oldvalue, newvaluue) {
+      if (oldvalue != newvaluue) {
+        this.subjectsSelected = [];
+      }
+    },
+  },
 };
 </script>

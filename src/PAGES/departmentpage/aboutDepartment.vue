@@ -42,7 +42,7 @@
     padding: 90px;
     color: #fff;
     border-radius: 10px;
-    @include a.breakpoint(small) {
+    @include a.breakpoint(medium) {
       grid-template-columns: repeat(1, 1fr);
       padding: 90px 30px;
     }
@@ -77,7 +77,7 @@
       height: 60px;
       border-radius: 50px;
       object-fit: cover;
-      @include a.breakpoint(small) {
+      @include a.breakpoint(medium) {
       width: 15%;
     }
     }
